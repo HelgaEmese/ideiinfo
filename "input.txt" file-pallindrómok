@@ -1,0 +1,43 @@
+#include <iostream>
+#include <fstream>
+#include <stdlib.h>
+
+using namespace std;
+
+int main()
+{
+    string line;
+    int v[100],m[100],i=0,n,k,a;
+    ifstream file("input.txt");
+    if(file.is_open()){
+    while(getline(file,line)){
+            v[i]=atoi(line.c_str());
+    i++;
+
+        }
+      file.close();
+    } else cout<<"nem tudtam megnyitni";
+     n=i;
+
+    for (i=0; i<n; i++){
+a=v[i];
+         m[i]=0;  while (a>0){
+k=a%10;
+          	m[i]=m[i]*10+k;
+       		a=a/10;
+        }
+
+    }
+ofstream ofile;
+ofile.open("output.txt");
+for (i=0; i<n; i++){
+         if (v[i]==m[i])
+		ofile<<m[i]<<" palindrom "<<endl;
+        else
+		ofile<<m[i]<<" nem palindrom"<<endl;
+    }
+         ofile.close();
+
+
+    return 0;
+}
