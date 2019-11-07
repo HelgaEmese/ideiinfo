@@ -1,5 +1,8 @@
 #include <iostream>
 
+//a két számot deklaráljuk globálisan és NE használjunk semmilyen segédváltozót a függvényekben
+//a két számot deklaráljuk globálisan és használjunk segédváltozót a ln.k.o kiszámításában
+
 using namespace std;
 int a, b;
 int lnko ()
