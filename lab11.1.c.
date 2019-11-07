@@ -1,5 +1,7 @@
 #include <iostream>
 
+//a két számot deklaráljunk lokálisan és ÉRTÉK szerint adjuk át a függvényeknek
+
 using namespace std;
 int a, b;
 int lnko (int a, int b)
