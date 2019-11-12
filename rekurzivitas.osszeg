@@ -1,5 +1,7 @@
 #include <iostream>
 
+// Írjunk egy rekurzív függvényt, amely kiszámolja az S= 1 + 2 + 3 + … összeget. 
+
 using namespace std;
 
 int osszeg(int n){
