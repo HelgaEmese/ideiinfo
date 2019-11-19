@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+int szorzat(int k)
+{
+    if(k==0)
+    {
+        return 1;
+    }
+    return k%10*szorzat(k/10);
+}
+int main()
+{
+    cout << szorzat(351) << endl;
+    return 0;
+}
