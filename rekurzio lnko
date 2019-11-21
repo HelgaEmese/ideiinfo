@@ -1,0 +1,25 @@
+#include <iostream>
+
+//Írjunk rekurzív függvényt, mely meghatározza két szám legnagyobb közös osztóját!
+
+using namespace std;
+
+int lnko(int n, int m){
+if(m==n)
+{
+    return n;
+}
+if(m>n)
+{
+    return lnko( m-n,n);
+}
+return lnko(m,n-m);
+}
+
+int main()
+{
+    cout << lnko(18,2) << endl;
+    cout << lnko(2,18) << endl;
+    cout << lnko(6,9) << endl;
+    return 0;
+}
