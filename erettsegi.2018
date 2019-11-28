@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+//beolvasunk egy stringet es egy kodot
+//ha paros akkor kiirjuk az elejere ,kulonben a vegere
+
+int main()
+{
+    string szoveg,kod,a= " ";
+    cout << "kerem a stringet";
+    cin >> szoveg;
+    cin >> kod;
+    if(kod.length()!=szoveg.length())
+    {
+        cout << "rossz a kodolas";
+    }
+    else
+    {
+        a.append(szoveg,0,1);
+        for(int i=1; i<kod.length(); i++)
+        {
+            if(kod[i]=='0'|| kod[i]=='2' || kod[i]=='4 '|| kod[i]=='6' ||kod[i]=='8')
+            {
+                a.insert(0,szoveg,i,1);
+            }
+            else
+            {
+                a.append (szoveg,i,1);
+            }
+        }
+    }
+
+    cout << a;
+    return 0;
+}
