@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1571728272 source:d:\emese\stringesmatrix\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<stdlib.h>
+
