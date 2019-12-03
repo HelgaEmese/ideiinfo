@@ -1,0 +1,42 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+//1. Adott egy input.txt  file, amely első sorában egy szám van, N.
+//Az alatta levő N sorban szavak vannak,minden sorban N szó, " " el elválasztva egymástól.
+//Írjunk egy C++ programot, amely a főátló feletti szavak első két betűjét alakítja
+//nagybetűvé, illetve a főátló alatti szavak utolsó két betűjét,
+//majd az így kapott eredményt egy output.txt file ba írja.
+
+int main()
+{
+    ifstream input("input.txt");
+    ofstream output("output.txt");
+    int n;
+    string v[100][100];
+    input >> n;
+   for (int i=0; i<n; i++){
+    for (int j=0; j<n; j++){
+        input >> v[i][j];
+        if(i<j){
+            transform(v[i][j].begin(), v[i][j].begin()+2, v[i][j].begin(), ::toupper);
+        }
+        if (j<i){
+        transform(v[i][j].end()-2, v[i][j].end(), v[i][j].end()-2, ::toupper);
+
+        }
+        output<<v[i][j]<< " ";
+    }
+    output<<endl;
+   }
+
+
+
+    return 0;
+}
+
+
+
