@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1570519256 source:d:\emese\string veletlen karakterekkel\main.cpp
+	<iostream>
+	<string>
+	<stdlib.h>
+
