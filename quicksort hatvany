@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int hatvany(int a,int k){
+if(k==1){return a;}
+int x;
+x=hatvany(a,k/2);
+x=x*x;
+if (k%2!=0){x=x*a;}
+return x;
+};
+
+
+int main()
+{
+    cout << "Hello world!" << endl;
+    return 0;
+}
