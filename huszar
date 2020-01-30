@@ -1,0 +1,88 @@
+#include <iostream>
+
+using namespace std;
+
+const int n=5;
+int kontor=0;
+/*
+megoldas kiirasa
+*/
+int x[8]={-1,-2,-2,-1,1,2,2,1};
+int y[8]={-2,-1,1,2,2,1,-1,-2};
+bool lehet(int i, int j, short board[][n])
+{
+    if( board[i][j]>0 ){ return false ; }
+    if (i<0 || i>=n || j>=n){ return false; }
+return true;}
+
+  void uresit( short board[][n] )  {
+  for (int i=0;i<n; i++)
+  {
+      for (int j=0;j<n; j++){board[i][j]=0; }
+  }
+  }
+  void kiir (short board[][n]){
+  for (int i=0;i<n; i++)
+  {
+      for (int j=0;j<n; j++){ cout << board[i][j] << " " ;}
+  } cout << endl;
+  }
+    bool backtracking(int sor, int oszlop, short board[][n], int lepes )
+{
+    if(lepes == n*n)
+    {
+        kontor++;
+
+        kiir(board);
+        cout << endl;
+
+        return true;
+    }
+
+/*
+Megvizsgalja, hogy le lehet-e tenni a husezart
+*/
+}
+
+for(int i=0; i<n; i++)
+    {
+        //ha le lehet tenni a jelenlegi helyre a kiralynot
+        if(lehet(sor+xlepes[i], oszlop+ylepes[i],  board))
+        {
+            //hozzunk letre egy ideiglenes tablat, amibe atmasoljuk az eddigit
+            short tempboard[n][n];
+            for(int i = 0; i< n; i++){
+                for(int j = 0; j < n; j++){
+                    tempboard[i][j] = board[i][j];
+                }
+            }
+            int templepes = lepes + 1;
+            //az ideiglenes tablara tegyuk le a kiralynot
+            tempboard[sor+xlepes[i]][oszlop+ylepes[i]] = templepes;
+            //hivjuk meg a backtraking fuggvenyt a kovetkezo sorra
+            backtracking(sor+xlepes[i], oszlop+ylepes[i],  tempboard,templepes);
+        }
+
+    }
+
+
+int main()
+{ //sakktabla letrehozasa
+    short board[n][n];
+    //sakktabla inicializalasa
+    uresit(board);
+    //backtracking inditasa a 0. sorbol
+for (int i=0,i<n;i++){
+    for(int i=0,i<n;i++)
+        {
+             uresit(board);
+            board[i][j] = 1;
+            backtracking(i,j, board, 1);
+        }
+    }
+    cout << " huszarok szama : ";
+    cout << "kontor";
+
+    return 0;
+
+}
