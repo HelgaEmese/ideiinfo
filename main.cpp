@@ -1,34 +1,47 @@
 #include<iostream>
+
 using namespace std;
 
-//a lista deklaralasa globalisan
-//C++ ban ezt kulon classbe kellene deklaralni
+//2. Hozzunk létre egy olyan egyszeresen láncolt listát, amiben egy diáknév és egy infójegy van,
+//majd számítsuk ki az infóhegyek átlagát. és írjuk ki az átlag alatti diákokat!
+
 struct lista {
-    //a szamertek egy elemen belul
-   int ertek;
-   //mutato a kovetkezo elemre
+   float infojegy;
+   string nev;
    lista * kov;
 };
 
 int main() {
-    //ures lista letrehozasa, amely egy nulla elemre mutat tovabb
    lista * mutato = NULL;
+   int n;
+   cout << "n = " ;
+   cin >> n ;
    int i;
-   for(i=0;i<10;i++) {
-        //uj nem ures elem letrehozasa
+   for(i=0;i<n;i++) {
       lista * ujelem = new lista;
-    //az uj elem int mezojenek adunk erteket
-      ujelem->ertek = i;
-    //a kovetkezo elem az a mutatora fog mutatni, ami eloszor a semmibe mutat (vagyis jelzi, hogy vege van)
-    //aztan az elso elemre, majd a semmibe mutat, aztan a masodik elemre, elso elemre majd a semmibe mutat, stb
+      cout << "Kerem a nevet : " ;
+      cin >> ujelem->nev;
+      cout << "Kerem az info jegyet: " ;
+      cin >>ujelem->infojegy ;
       ujelem->kov  = mutato;
-      //a mutatonak megfeleltetjuk az ujonnan letrehozott elemet
       mutato = ujelem;
    }
-   //lista kiirasa
+    lista * tempmutato = mutato;
+    float atlag=0;
+   while(tempmutato) {
+      //cout << tempmutato->nev << " ";
+      atlag+= tempmutato->infojegy;
+      tempmutato = tempmutato->kov ;
+   }
+   atlag/=n;
    while(mutato) {
-      cout << mutato->ertek << " ";
+      //cout << tempmutato->nev << " ";
+      if (atlag>mutato->infojegy)
+      {
+      cout << mutato->nev << " " << endl ;
+      }
       mutato = mutato->kov ;
    }
+   cout << endl;
    return 0;
 }
